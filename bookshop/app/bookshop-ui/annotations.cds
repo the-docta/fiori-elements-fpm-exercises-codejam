@@ -18,47 +18,38 @@ annotate service.Books with @(
         Data : [
             {
                 $Type: 'UI.DataField',
-                Label: 'title',
                 Value: title,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'descr',
                 Value: descr,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'author_ID',
                 Value: author_ID,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'genre_ID',
                 Value: genre_ID,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'stock',
                 Value: stock,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'criticality',
                 Value: criticality,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'price',
                 Value: price,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'currency_code',
                 Value: currency_code,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'image',
                 Value: image,
             },
         ],
@@ -72,7 +63,6 @@ annotate service.Books with @(
         },
         {
             $Type : 'UI.ReferenceFacet',
-            Label : 'Author',
             ID    : 'Author',
             Target: '@UI.FieldGroup#Author',
         },
@@ -115,38 +105,41 @@ annotate service.Books with @(
     },
 ) {
 
-    title  @title           : 'Title';
-    author @title           : 'Author';
-    genre  @title           : 'Genre';
-    price  @title           : 'Price';
-    stock  @title           : 'Stock';
+    title  @title : 'Title';
+    author @title : 'Author';
+    genre  @title : 'Genre';
+    price  @title : 'Price';
+    stock  @title : 'Stock';
 
-    author @Common.ValueList: {
-        $Type         : 'Common.ValueListType',
-        CollectionPath: 'Authors',
-        Parameters    : [
-            {
-                $Type            : 'Common.ValueListParameterInOut',
-                LocalDataProperty: author_ID,
-                ValueListProperty: 'ID',
-            },
-            {
-                $Type            : 'Common.ValueListParameterDisplayOnly',
-                ValueListProperty: 'name',
-            },
-            {
-                $Type            : 'Common.ValueListParameterDisplayOnly',
-                ValueListProperty: 'dateOfBirth',
-            },
-            {
-                $Type            : 'Common.ValueListParameterDisplayOnly',
-                ValueListProperty: 'dateOfDeath',
-            },
-            {
-                $Type            : 'Common.ValueListParameterDisplayOnly',
-                ValueListProperty: 'placeOfBirth',
-            },
-        ],
+    author @Common: {
+        ValueListWithFixedValues: true, // dropdown instead of dialog
+        ValueList               : {
+            $Type         : 'Common.ValueListType',
+            CollectionPath: 'Authors',
+            Parameters    : [
+                {
+                    $Type            : 'Common.ValueListParameterInOut',
+                    LocalDataProperty: author_ID,
+                    ValueListProperty: 'ID',
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'name',
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'dateOfBirth',
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'dateOfDeath',
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'placeOfBirth',
+                },
+            ],
+        }
     }
 };
 
@@ -171,3 +164,11 @@ annotate service.Books with @(UI.FieldGroup #Author: {
         },
     ],
 });
+
+// value help for Authors: display name instead of ID
+annotate CatalogService.Authors with {
+    ID @Common.Text: {
+        $value                : name,
+        ![@UI.TextArrangement]: #TextOnly,
+    }
+};
