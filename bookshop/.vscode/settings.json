@@ -1,0 +1,48 @@
+{
+    // uncomment entries once all libraries have been installed via 'npm install'
+    "eslint.validate": [
+        // "cds",
+        // "csn",
+        // "csv",
+        // "csv (semicolon)",
+        // "tab",
+        // "tsv"
+    ],
+    "files.exclude": {
+        "**/.gitignore": false,
+        "**/.git": true,
+        "**/.vscode": false
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "files.insertFinalNewline": true,
+    "[properties]": {
+        "editor.formatOnSave": false
+    },
+    "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[dotenv]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[cds]": {
+        "editor.defaultFormatter": "SAPSE.vscode-cds"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cds.completion.formatSnippets": true,
+    "cds.semanticHighlighting.enabled": true,
+    "rest-client.previewResponsePanelTakeFocus": false,
+    "rest-client.previewOption": "exchange",
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "search.exclude": {
+        "**/package-lock.json": true
+    },
+    "search.useIgnoreFiles": true
+}

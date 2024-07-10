@@ -16,7 +16,7 @@
             />
 
 		<Button text="Order" press="handler.onSubmitOrder" type="Default" enabled="{= %{stock} &gt;= %{userInput>/selectedQuantity} }" class="sapUiTinyMarginBegin" />
-		<Button text="try method from controller extension" press="loremIpsum" class="sapUiTinyMarginBegin" />
+		<Button text="try method from controller extension" press=".extension.bookshopui.ext.fragment.Order.loremIpsum" class="sapUiTinyMarginBegin" />
 
 	</HBox>
 	<Text text="below is a 'Field' building block" />
