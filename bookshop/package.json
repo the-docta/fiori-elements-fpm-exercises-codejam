@@ -20,7 +20,7 @@
         "dev": "cds watch",
         "format:all": "prettier --write .",
         "format:check:all": "prettier --check .",
-        "watch-bookshop-ui": "cds watch --open bookshopui/index.html?sap-ui-xx-viewCache=false --livereload false"
+        "watch-bookshop-ui": "cds watch --open bookshopui/index.html?sap-ui-xx-viewCache=false --livereload true"
     },
     "cds": {
         "db": {
