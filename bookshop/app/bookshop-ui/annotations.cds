@@ -1,6 +1,18 @@
 using CatalogService as service from '../../srv/cat-service';
 
 annotate service.Books with @(
+    UI.SelectionFields           : [
+        genre_ID,
+        author_ID
+    ],
+    UI.HeaderInfo                : {
+        TypeName      : 'Book',
+        TypeNamePlural: 'Books',
+        Title         : {Value: title},
+        Description   : {Value: author.name}
+    },
+    UI.Identification            : [{Value: ID}],
+
     UI.FieldGroup #GeneratedGroup: {
         $Type: 'UI.FieldGroupType',
         Data : [
@@ -65,37 +77,50 @@ annotate service.Books with @(
             Target: '@UI.FieldGroup#Author',
         },
     ],
-    UI.LineItem                  : [
-        {
-            $Type: 'UI.DataField',
-            Label: 'title',
-            Value: title,
-        },
-        {
-            $Type                : 'UI.DataField',
-            Label                : 'descr',
-            Value                : descr,
-            ![@HTML5.CssDefaults]: {width: '100%'}
-        },
-        {
-            $Type: 'UI.DataField',
-            Label: 'author_ID',
-            Value: author_ID,
-        },
-        {
-            $Type: 'UI.DataField',
-            Label: 'genre_ID',
-            Value: genre_ID,
-        },
-        {
-            $Type: 'UI.DataField',
-            Label: 'stock',
-            Value: stock,
-        },
-    ],
-);
+    UI.LineItem                  : {
+        // criticality for whole line item
+        ![@UI.Criticality]: criticality,
 
-annotate service.Books with {
+        // actual line items
+        $value            : [
+            {
+                $Type                : 'UI.DataField',
+                ![@UI.Importance]    : #High,
+                Value                : title,
+                ![@HTML5.CssDefaults]: {width: '100%'}
+            },
+            {
+                $Type            : 'UI.DataField',
+                Value            : author.name,
+                ![@UI.Importance]: #High
+            },
+            {
+                $Type            : 'UI.DataField',
+                Value            : genre.name,
+                ![@UI.Importance]: #Medium
+            },
+            {
+                $Type            : 'UI.DataField',
+                Value            : price,
+                ![@UI.Importance]: #Medium
+            },
+            {
+                $Type                    : 'UI.DataField',
+                Value                    : stock,
+                Criticality              : criticality,
+                CriticalityRepresentation: #WithoutIcon,
+                ![@UI.Importance]        : #Medium
+            }
+        ]
+    },
+) {
+
+    title  @title           : 'Title';
+    author @title           : 'Author';
+    genre  @title           : 'Genre';
+    price  @title           : 'Price';
+    stock  @title           : 'Stock';
+
     author @Common.ValueList: {
         $Type         : 'Common.ValueListType',
         CollectionPath: 'Authors',
@@ -124,6 +149,7 @@ annotate service.Books with {
         ],
     }
 };
+
 
 annotate service.Books with @(UI.FieldGroup #Author: {
     $Type: 'UI.FieldGroupType',

@@ -21,6 +21,8 @@ entity Books : managed, cuid {
 
 entity Authors : managed {
     key ID           : Integer;
+
+        @title: 'Author'
         name         : String(111);
         dateOfBirth  : Date;
         dateOfDeath  : Date;
@@ -35,4 +37,8 @@ entity Genres : sap.common.CodeList {
         parent   : Association to Genres;
         children : Composition of many Genres
                        on children.parent = $self;
+}
+
+annotate Genres with {
+    name @title: 'Genre'
 }

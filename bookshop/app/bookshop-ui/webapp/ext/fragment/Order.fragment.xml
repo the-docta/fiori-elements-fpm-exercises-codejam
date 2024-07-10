@@ -1,21 +1,26 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
 
+
+<VBox>
 	<HBox core:require="{ handler: 'bookshopui/ext/fragment/Order' }">
 
 		<StepInput
-            name="asd"
-            min="1"
-            max="{stock}"
-            value="{userInput>/selectedQuantity}"
-            stepMode="Multiple"
-            largerStep="10"
-            textAlign="Center"
-            validationMode="LiveChange"
-        />
+                name="asd"
+                min="1"
+                max="{stock}"
+                value="{userInput>/selectedQuantity}"
+                stepMode="Multiple"
+                largerStep="10"
+                textAlign="Center"
+                validationMode="LiveChange"
+            />
 
 		<Button text="Order" press="handler.onSubmitOrder" type="Default" enabled="{= %{stock} &gt;= %{userInput>/selectedQuantity} }" class="sapUiTinyMarginBegin" />
 		<Button text="try method from controller extension" press="loremIpsum" class="sapUiTinyMarginBegin" />
 
 	</HBox>
+	<Text text="below is a 'Field' building block" />
+	<macros:Field xmlns:macro="sap.fe.macros" metaPath="title" />
+</VBox>
 
 </core:FragmentDefinition>
