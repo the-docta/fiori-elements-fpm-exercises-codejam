@@ -57,7 +57,7 @@
         }
     },
     "sap.ui5": {
-        "flexEnabled": true,
+        "flexEnabled": false,
         "dependencies": {
             "minUI5Version": "1.125.1",
             "libs": {
@@ -143,7 +143,21 @@
                     "options": {
                         "settings": {
                             "editableHeaderContent": false,
-                            "contextPath": "/Books"
+                            "contextPath": "/Books",
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "Order": {
+                                            "template": "bookshopui.ext.fragment.Order",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "GeneratedFacet1"
+                                            },
+                                            "title": "Order"
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
