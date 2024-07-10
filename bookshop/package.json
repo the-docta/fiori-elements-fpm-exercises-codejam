@@ -12,17 +12,25 @@
     },
     "devDependencies": {
         "@cap-js/sqlite": "^1",
-        "@sap/ux-specification": "^1.120.8"
+        "@sap/ux-specification": "^1.120.8",
+        "cds-plugin-ui5": "^0.9.3"
     },
     "scripts": {
         "start": "cds run",
         "dev": "cds watch",
         "format:all": "prettier --write .",
-        "format:check:all": "prettier --check ."
+        "format:check:all": "prettier --check .",
+        "watch-bookshop-ui": "cds watch --open bookshopui/index.html?sap-ui-xx-viewCache=false --livereload false"
     },
     "cds": {
         "db": {
             "kind": "sql"
         }
-    }
+    },
+    "workspaces": [
+        "app/*"
+    ],
+    "sapux": [
+        "app/bookshop-ui"
+    ]
 }
