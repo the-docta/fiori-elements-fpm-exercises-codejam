@@ -1,5 +1,5 @@
-sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
-    'use strict';
+sap.ui.define(["sap/fe/test/ListReport"], function (ListReport) {
+    "use strict";
 
     var CustomPageDefinitions = {
         actions: {},
@@ -8,9 +8,9 @@ sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
 
     return new ListReport(
         {
-            appId: 'bookshopui',
-            componentId: 'BooksList',
-            contextPath: '/Books'
+            appId: "bookshopui",
+            componentId: "BooksList",
+            contextPath: "/Books"
         },
         CustomPageDefinitions
     );

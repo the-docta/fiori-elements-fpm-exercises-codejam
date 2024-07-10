@@ -1,5 +1,5 @@
-sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
-    'use strict';
+sap.ui.define(["sap/fe/test/ObjectPage"], function (ObjectPage) {
+    "use strict";
 
     var CustomPageDefinitions = {
         actions: {},
@@ -8,9 +8,9 @@ sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
 
     return new ObjectPage(
         {
-            appId: 'bookshopui',
-            componentId: 'BooksObjectPage',
-            contextPath: '/Books'
+            appId: "bookshopui",
+            componentId: "BooksObjectPage",
+            contextPath: "/Books"
         },
         CustomPageDefinitions
     );
