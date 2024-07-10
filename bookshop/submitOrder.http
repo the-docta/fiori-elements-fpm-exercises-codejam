@@ -1,0 +1,14 @@
+### 
+GET http://localhost:4004/odata/v4/catalog/$metadata
+### 
+GET http://localhost:4004/odata/v4/catalog/Books
+
+###
+POST http://localhost:4004/odata/v4/catalog/Books(01030fee-aa27-4fbb-bcab-1c4d372eb5cd)/CatalogService.submitOrder HTTP/1.1
+Accept:application/json;odata.metadata=minimal;IEEE754Compatible=true
+Accept-Language:de-DE
+Content-Type:application/json;charset=UTF-8;IEEE754Compatible=true
+
+{
+    "quantity": 9
+}

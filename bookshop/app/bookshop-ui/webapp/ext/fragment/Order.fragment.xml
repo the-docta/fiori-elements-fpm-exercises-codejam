@@ -5,7 +5,7 @@
 	<HBox core:require="{ handler: 'bookshopui/ext/fragment/Order' }">
 
 		<StepInput
-                name="asd"
+                id="stepInput"
                 min="1"
                 max="{stock}"
                 value="{userInput>/selectedQuantity}"
