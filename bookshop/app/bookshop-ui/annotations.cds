@@ -105,13 +105,19 @@ annotate service.Books with @(
     },
 ) {
 
-    title  @title : 'Title';
-    author @title : 'Author';
-    genre  @title : 'Genre';
-    price  @title : 'Price';
-    stock  @title : 'Stock';
+    title   @title : 'Title';
+    author  @title : 'Author'  @Common: {
+        Text           : author.name,
+        TextArrangement: #TextOnly
+    };
+    genre   @title : 'Genre'   @Common: {
+        Text           : genre.name,
+        TextArrangement: #TextOnly
+    };
+    price   @title : 'Price';
+    stock   @title : 'Stock';
 
-    author @Common: {
+    author  @Common: {
         ValueListWithFixedValues: true, // dropdown instead of dialog
         ValueList               : {
             $Type         : 'Common.ValueListType',
@@ -172,3 +178,5 @@ annotate CatalogService.Authors with {
         ![@UI.TextArrangement]: #TextOnly,
     }
 };
+
+annotate CatalogService.Books with @odata.draft.enabled;
