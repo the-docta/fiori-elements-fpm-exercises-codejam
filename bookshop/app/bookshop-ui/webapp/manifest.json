@@ -117,6 +117,7 @@
                     "options": {
                         "settings": {
                             "contextPath": "/Books",
+                            "initialLoad": "Enabled",
                             "variantManagement": "Page",
                             "navigation": {
                                 "Books": {
