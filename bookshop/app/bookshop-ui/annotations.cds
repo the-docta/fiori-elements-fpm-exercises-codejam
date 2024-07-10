@@ -51,12 +51,20 @@ annotate service.Books with @(
             },
         ],
     },
-    UI.Facets                    : [{
-        $Type : 'UI.ReferenceFacet',
-        ID    : 'GeneratedFacet1',
-        Label : 'General Information',
-        Target: '@UI.FieldGroup#GeneratedGroup',
-    }, ],
+    UI.Facets                    : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID    : 'GeneratedFacet1',
+            Label : 'General Information',
+            Target: '@UI.FieldGroup#GeneratedGroup',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Author',
+            ID    : 'Author',
+            Target: '@UI.FieldGroup#Author',
+        },
+    ],
     UI.LineItem                  : [
         {
             $Type: 'UI.DataField',
@@ -116,3 +124,24 @@ annotate service.Books with {
         ],
     }
 };
+
+annotate service.Books with @(UI.FieldGroup #Author: {
+    $Type: 'UI.FieldGroupType',
+    Data : [
+        {
+            $Type: 'UI.DataField',
+            Value: author.name,
+            Label: 'name',
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: author.placeOfBirth,
+            Label: 'placeOfBirth',
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: author.dateOfBirth,
+            Label: 'dateOfBirth',
+        },
+    ],
+});
