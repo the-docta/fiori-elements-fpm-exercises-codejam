@@ -1,0 +1,28 @@
+# generic settings (for js, json, yaml, everything)
+trailingComma: none
+plugins:
+  - "@prettier/plugin-xml"
+printWidth: 160
+tabWidth: 4
+useTabs: false
+semi: true
+singleQuote: false
+endOfLine: lf
+# extensionspecific setting for .properties files
+# keySeparator: "="
+# now add some overrides
+overrides:
+  # set parser for all JS files
+  - files:
+      - "*.js"
+    options:
+      parser: babel # available parsers for JS: babel, flow, babel-flow, espree, meriyah
+  - files:
+      - "*.yaml"
+      - "*.yml"
+    options:
+      tabWidth: 2
+  - files:
+      - "*/webapp/**/*.xml"
+    options:
+      xmlWhitespaceSensitivity: ignore

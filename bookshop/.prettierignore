@@ -1,0 +1,26 @@
+# generated ui5 build results
+dist
+
+# Web IDE, App Studio
+.che/
+.gen/
+
+# Other
+.DS_Store
+*.orig
+*.log
+coverage
+.nyc_output
+
+# ignore the various ignore files - no prettier
+.*ignore
+
+# ignore (generated) package-lock.json
+package-lock.json
+
+*.html
+
+# some generated JS by SAP 
+*/webapp/utils/locate-reuse-libs.js
+**/node_modules
+node_modules
